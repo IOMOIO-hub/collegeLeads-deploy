@@ -14,7 +14,7 @@ export default async function request(url, data = null, method = 'GET') {
     // const response = await fetch('https://tg-forms.ru/api/' + url, {
     //   method, headers, body
     // })
-    const response = await fetch('http://localhost:5000/' + url, {
+    const response = await fetch('http://84.201.137.82/api/' + url, {
       method, headers, body
     })
 
