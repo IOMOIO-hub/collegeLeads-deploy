@@ -101,7 +101,7 @@ export default {
 .modal-container {
 	background-color: white;
 	border-radius: 4px;
-	max-width: 90%;
+	max-width: 98%;
 	max-height: 90vh;
 	overflow-y: auto;
 	display: flex;

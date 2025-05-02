@@ -6,7 +6,7 @@
 </template>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
 #app {
   font-family: "Inter", sans-serif;
@@ -16,6 +16,7 @@
 
 html {
 	font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -26,6 +27,7 @@ html {
 	width: 100%;
 	max-width: 1280px;
 	margin: 0 auto;
+  padding: 0 1rem;
 }
 
 </style>

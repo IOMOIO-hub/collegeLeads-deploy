@@ -1,259 +1,258 @@
 <script>
-import request from "@/request"
-import Modal from "@/components/Modal.vue"
+import Header from "@/components/landing/Header.vue";
+import Modal from "@/components/landing/Modal.vue"
+import Features from "@/components/landing/Features.vue";
+import Section from "@/components/landing/Section.vue";
+import ProgramGrid from "@/components/landing/Programs/ProgramGrid.vue";
+import About from "@/components/landing/About.vue";
+import Cards from "@/components/landing/Cards.vue";
+import Banner from "@/components/landing/Banner.vue";
+import Form from "@/components/landing/Form.vue";
+import Footer from "@/components/landing/Footer.vue";
 
 export default {
-	name: 'LandingView',
-	components: {
-		Modal
-	},
-	data() {
-		return {
-			isModalOpen: false,
-			name: '',
-			telegram: '',
-			agreement: true,
-		}
-	},
-	methods: {
-		async lead() {
-			await request('lead/new', {name: this.name, telegram: this.telegram})
-		}
-	}
+  name: 'LandingView',
+  components: {
+    Form, Banner, Header, Cards, About, ProgramGrid, Section, Features, Modal, Footer,
+  },
+  data() {
+    return {
+      isModalOpen: false,
+      isPolicyOpen: false,
+    }
+  },
 }
 </script>
 
 <template>
-	<header class="header">
-		<div class="header__logo">
-			<img src="@/assets/logo.png" alt="Логотип" class="header__logo">
-			<div class="column">
-				<span class="title">Уральский колледж экономики и права</span>
-				<span class="subtitle">Автономная некоммерческая организация профессионального образования</span>
-			</div>
-		</div>
+  <Header @openModal="isModalOpen = true"/>
 
-		<button class="header__button" @click="isModalOpen = true">
-			Поступить
-		</button>
-	</header>
+  <Banner @openModal="isModalOpen = true"/>
 
-	<div class="banner">
-		<div class="banner__back"></div>
-		<img src="@/assets/banner.png" alt="Студент на пуфе" class="banner__image">
-		<h1>Колледж</h1>
-		<p>Поступи в колледж <b>без ЕГЭ и ОГЭ</b><br>Дистанционно!</p>
-		<div class="banner__buttons">
-			<button @click="isModalOpen = true">Подать заявку</button>
-<!--			<button>Выбрать направление</button>-->
-		</div>
-	</div>
+  <Features
+    style="padding: 8rem 0"
+    :features="[
+        {
+          icon: 'house-laptop',
+          title: 'Дистанционное обучение',
+          text: 'Без выезда в Екатеринбург, можно совмещать с семьей и работой'
+        },
+        {
+          icon: 'graduation-cap',
+          title: 'Обучение после 9&nbsp;и&nbsp;11 классов',
+          text: 'В любом возрасте, с любым базовым образованием'
+        },
+        {
+          icon: 'file-certificate',
+          title: 'Диплом гос. образца',
+          text: 'Государственная лицензия и аккредитация',
+          link: '#docs'
+        },
+        {
+          icon: 'arrows-spin',
+          title: 'Непрерывная программа колледж&nbsp;+&nbsp;ВУЗ',
+          text: 'Перезачет дисциплин, поступление по внутренним экзаменам',
+          link: '#collegevuz'
+        },
+    ]"
+  />
 
-	<Modal
-		v-model:isOpen="isModalOpen"
-		title="Получить консультацию"
-		width="450px"
-	>
-		<div class="form">
-			<p>Ваше имя</p>
-			<input type="text" v-model="name" placeholder="Имя" class="form__input">
-			<p>Телеграм</p>
-			<input type="tel" v-model="telegram" placeholder="@username" class="form__input">
-			<span>Если вас нет в телеграм, оставьте номер телефона</span>
-			<div class="form__agreement">
-				<input type="checkbox" v-model="agreement">
-				<p>Отправляя заявку, вы соглашаетесь с <a>политикой конфиденциальности</a> и условиями обработки персональных данных, а также даёте согласие на получение информационных рассылок</p>
-				</div>
-		</div>
+  <Section title="Выбери свое направление" id="programs">
+    <ProgramGrid
+      :programs="[
+        {
+          title: 'Юриспруденция',
+          list: ['Общий', 'Правоохранительная деятельность', 'Судебное администрирование'],
+          subtitle: 'от 1 года 10 месяцев',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Торговое дело',
+          list: ['Электронная коммерция'],
+          subtitle: 'от 1 года  10 месяцев',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Менеджмент',
+          list: ['Управление проектами', 'Управление персоналом', 'Финансовый менеджмент', 'Инновационный менеджмент', 'Психология управления', 'Информационные технологии в менеджменте'],
+          subtitle: 'от 3 лет',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Экономика',
+          list: ['Экономика и бухучет', 'Финансы и кредит', 'Банковское дело', 'Экономика малого бизнеса'],
+          subtitle: 'от 3 лет',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Повышение квалификации',
+          list: ['По запросу заказчика', 'По любым направлениям'],
+          subtitle: 'от 16 до 256 часов',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Переподготовка кадров',
+          list: ['По запросу заказчика', 'По любым направлениям'],
+          subtitle: 'от 4 месяцев до 1 года',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Популярные программы',
+          list: ['Ораторское мастерство', 'Лидерство', 'Командообразование', 'Игропрактики'],
+          subtitle: 'от 16 часов до 6 месяцев',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Иностранные языки',
+          list: ['Английский', 'Немецкий', 'Итальянский', 'Китайский'],
+          subtitle: 'от 3 месяцев',
+          icon: 'graduation-cap'
+        },
+      ]"
+    />
+  </Section>
 
-		<template v-slot:footer>
-			<button @click="lead" class="borderButton">Получить</button>
-		</template>
-	</Modal>
+  <Section title="Непрерывная программа КОЛЛЕДЖ&nbsp;+&nbsp;ВУЗ" id="collegevuz">
+    <img
+      src="@/assets/images/CollegeVUZ.svg"
+      alt="Схема программы"
+      style="margin: 4rem 0; max-width: 100%"
+    >
+  </Section>
+
+  <Section title="Об институте">
+    <About/>
+  </Section>
+
+  <Section title="Как поступить">
+    <Features
+      style="margin-top: 4rem"
+      :features="[
+        {
+          icon: 'globe-pointer',
+          title: 'Оставь заявку',
+          text: 'Оставьте заявку и наши специалисты свяжутся с вами!'
+        },
+        {
+          icon: 'file',
+          title: 'Подай документы онлайн',
+          text: 'Электронная подача документов без выезда в Екатеринбург'
+        },
+        {
+          icon: 'file-signature',
+          title: 'Пройди оформление',
+          text: 'Заключение договора на обучение в офисе или дистанционно.'
+        },
+        {
+          icon: 'graduation-cap',
+          title: 'Обучайся в УрУ-УИЭУиП',
+          text: 'Выбирай институт, колледж, повышение квалификации или переподготовку кадров! Приступайте к обучению и успехов!'
+        },
+    ]"
+    />
+  </Section>
+
+  <Section title="Лицензия и аккредитация" id="docs">
+    <p style="margin-top: 4rem">Посмотреть нашу бессрочную аккредитацию и лицензию Вы можете на сайте <a href="uralcollege.ru">uralcollege.ru</a></p>
+    <Cards
+      :cards="[
+          {
+            title: 'Свидетельство о гос. аккредитации',
+            subtitle: '№9682 от 02.06.2021',
+            image: 'certificate.png',
+            link: 'https://uralcollege.ru/uploadedFiles/files/Svidetelstvo_o_gos.akkreditatsii.pdf'
+          },
+          {
+            title: 'Лицензия',
+            subtitle: '№20449 от 02.12.2020',
+            image: 'license.png',
+            link: 'https://uralcollege.ru/uploadedFiles/files/litsenziya.PDF'
+          },
+      ]"
+    />
+  </Section>
+
+  <div class="blackSection">
+    <Section title="Поступай в УрУ-УИЭиП - Институт, Колледж, ДПО. Идет набор!" class="blackSection__card">
+      <Form/>
+    </Section>
+  </div>
+
+  <Footer @openPolicy="isPolicyOpen = true"/>
+
+  <Modal
+    v-model:isOpen="isModalOpen"
+    title="Получить консультацию"
+    width="450px"
+  >
+    <Form @openPolicy="isPolicyOpen = true"/>
+  </Modal>
+
+  <Modal
+    v-model:isOpen="isPolicyOpen"
+    title="Политика конфиденциальности"
+    width="920px">
+    <p
+      style="font-size: 1rem; line-height: 120%"
+    >
+      Ваша конфиденциальность очень важна для нас. Мы хотим, чтобы Ваша работа в Интернет по возможности была максимально приятной и полезной, и Вы совершенно спокойно использовали широчайший спектр информации, инструментов и возможностей, которые предлагает Интернет. Персональные данные, собранные при регистрации (или в любое другое время) преимущественно используется для подготовки Продуктов или Услуг в соответствии с Вашими потребностями. Ваша информация не будет передана или продана третьим сторонам. Однако мы можем частично раскрывать личную информацию в особых случаях, описанных в данной Политике конфиденциальности.
+
+      Рамки Политики конфиденциальности
+
+      Настоящая Политика конфиденциальности (далее — «Политика») применяется к информации, полученной через данный сайт, иные сайты, виджеты и другие используемые интерактивные средства, на которых есть ссылка на данную Политику (далее — «Сайт») от пользователей Сайта (далее — «Пользователи»). Нижеследующие правила описывают, как Московский технологический институт обращается с любой информацией, относящейся к прямо или косвенно определенному или определяемому физическому лицу (субъекту персональных данных) (далее — «Персональные данные»), для целей оказания услуг с использованием Сайта.
+
+      Пользователи включают в себя всех физических лиц, которые подключаются к Сайту и используют Сайт. Пользователи прямо соглашаются на обработку своих Персональных данных, как это описано в настоящей Политике. Обработка означает любое действие (операцию) или совокупность действий (операций), совершаемых с использованием средств автоматизации или без использования таких средств с Персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (распространение, предоставление, доступ), блокирование, удаление, уничтожение Персональных данных. Настоящая Политика конфиденциальности действует с 03 марта 2016 г.
+
+      Контролирующие и обрабатывающие лица
+
+      Пользователи соглашаются с тем, что:
+
+      Пользуясь Сайтом, и принимая условия использования, опубликованные на Сайте, пользователь заявляет о своем однозначном согласии с обработкой его Персональных данных способами, описанными в настоящей Политике.
+      Обработка Персональных данных Пользователей осуществляется Оператором персональных данных — Московский технологический институт (ИНН: 7 708 142 686, ОГРН: 1 027 700 479 740).
+
+      С какой целью собираются эти данные:
+
+      Имя используется для обращения лично к вам, а ваш e-mail для отправки вам писем рассылок, новостей тренинга, полезных материалов, коммерческих предложений. Вы можете отказаться от получения писем рассылки и удалить из базы данных свои контактные данные в любой момент, кликнув на ссылку для отписки, присутствующую в каждом письме.
+
+      Сбор Персональных данных
+
+      При регистрации на Сайте Пользователи подтверждают свое согласие с условиями настоящей Политики и свое согласие на обработку своих Персональных данных в соответствии с условиями настоящей Политики, кроме того они соглашаются на обработку своих Персональных данных на серверах Московского технологического института, расположенных на территории Российской Федерации.
+
+      Обработка Персональных данных осуществляется не дольше, чем этого требуют цели обработки Персональных данных, изложенные в настоящей Политике (за исключением случаев, предусмотренных законодательством Российской Федерации). Московский технологический институт может обрабатывать следующие Персональные данные:
+
+      адрес электронной почты и иную контактную информацию;
+      сообщения, направляемые с использованием Сайта, и сообщения, направляемые в Московский технологический институт;
+      иную информацию о взаимодействии Пользователя с Сайтом Московского технологического института, результаты сбора статистики посещений Сайта Московского технологического института и общедоступной информации о программах и устройствах, используемых для такового доступа;
+      дополнительную информацию, которую Московский технологический институт запрашивает у Пользователей для удостоверения их личности.
+
+      Как эти данные используются
+
+      На сайте используются куки (Cookies) и данные о посетителях сервиса Яндекс Метрика. При помощи этих данных собирается информация о действиях посетителей на сайте с целью улучшения его содержания, улучшения функциональных возможностей сайта и, как следствие, создания качественного контента и сервисов для посетителей. Вы можете в любой момент изменить настройки своего браузера так, чтобы браузер блокировал все файлы cookie или оповещал об отправке этих файлов. Учтите при этом, что некоторые функции и сервисы не смогут работать должным образом.
+
+      Как эти данные защищаются
+
+      Для защиты Вашей личной информации мы используем разнообразные административные, управленческие и технические меры безопасности. Наша Компания придерживается различных международных стандартов контроля, направленных на операции с личной информацией, которые включают определенные меры контроля по защите информации, собранной в Интернет. Наших сотрудников обучают понимать и выполнять эти меры контроля, они ознакомлены с нашим Уведомлением о конфиденциальности, нормами и инструкциями. Тем не менее, несмотря на то, что мы стремимся обезопасить Вашу личную информацию, Вы тоже должны принимать меры, чтобы защитить ее. Мы настоятельно рекомендуем Вам принимать все возможные меры предосторожности во время пребывания в Интернете. Организованные нами услуги и веб-сайты предусматривают меры по защите от утечки, несанкционированного использования и изменения информации, которую мы контролируем. Несмотря на то, что мы делаем все возможное, чтобы обеспечить целостность и безопасность своей сети и систем, мы не можем гарантировать, что наши меры безопасности предотвратят незаконный доступ к этой информации хакеров сторонних организаций.
+
+
+      В случае изменения данной политики конфиденциальности вы сможете прочитать об этих изменениях на этой странице или, в особых случаях, получить уведомление на свой e-mail.
+    </p>
+  </Modal>
 </template>
 
 <style scoped lang="scss">
-@import "@/assets/fonts/logoRegular.css";
 
-.header {
-	width: 100%; height: 6rem;
+.blackSection {
+  background-color: #333333;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 5%;
+  border-radius: 8px;
 
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-	&__logo {
-		height: 3rem;
-		display: flex;
-		flex-direction: row;
-		gap: 1rem;
-
-		img {
-			filter: invert(1);
-		}
-
-		.column {
-			display: flex;
-			flex-direction: column;
-		}
-
-		.title {
-			font-family: "LogoRegular", sans-serif;
-			white-space: nowrap;
-			font-size: 2rem;
-		}
-		.subtitle {
-			font-family: "LogoRegular", sans-serif;
-			white-space: nowrap;
-			font-size: 1rem;
-		}
-	}
-
-	&__button {
-		height: 2.5rem;
-		padding: 0 1rem;
-		line-height: 2.25rem;
-		color: var(--blue);
-		font-size: 1rem;
-		font-weight: 600;
-		border: var(--blue) solid 0.125rem;
-		background-color: #fff;
-
-		transition: 0.1s;
-		&:hover {
-			background-color: var(--blue);
-			color: #fff;
-		}
-	}
+  &__card {
+    background-color: #fff;
+    padding: 1.5rem 2rem;
+    border-radius: 4px;
+  }
 }
 
-.banner {
-	width: calc(100% - 1rem);
-	height: 24rem;
-	margin: 4rem 0;
-	padding: 3rem 4rem;
-	border: #121212 solid 1px;
-	background-color: #f2f2f2;
-
-	h1 {
-		font-size: 4rem;
-		font-weight: 600;
-	}
-
-	p {
-		font-size: 2rem;
-		font-weight: 400;
-		line-height: 150%;
-		padding: 1rem 0;
-	}
-
-	position: relative;
-	&__image {
-		position: absolute;
-		right: -5%;
-		top: -20%;
-		height: 150%;
-	}
-
-	&__buttons {
-		height: 3rem;
-		display: flex;
-		flex-direction: row;
-		gap: 1rem;
-		margin-top: 2rem;
-
-		button {
-			line-height: 2rem;
-			padding: 0 1.5rem;
-			font-size: 1.25rem;
-			font-weight: 500;
-
-			&:nth-of-type(1) {
-				background-color: var(--blue);
-				color: #fff;
-			}
-			&:nth-of-type(2) {
-				color: var(--blue);
-				border: var(--blue) solid 2px;
-			}
-		}
-	}
-
-	&__back {
-		width: 100%; height: 100%;
-		background-color: #fff;
-		border: #000 solid 1px;
-		position: absolute;
-		right: -1rem;
-		bottom: -1rem;
-		z-index: -1;
-	}
-}
-
-.form {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-
-	&__input {
-		width: 100%;
-		height: 3rem;
-		padding: 0 1rem;
-		font-size: 1rem;
-		border-radius: 2px;
-
-		border: #ccc solid 1px;
-	}
-	& > p {
-		margin-bottom: -0.5rem;
-	}
-	& > span {
-		margin-top: -0.5rem;
-		margin-bottom: 0.25rem;
-		font-size: 0.75rem;
-		color: #666;
-	}
-
-	&__agreement {
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		gap: 0.5rem;
-
-		input {
-			width: 1.125rem; height: 1.125rem;
-			border: #ccc solid 1px;
-			accent-color: var(--blue);
-			margin-top: 0.125rem;
-		}
-		p {
-			width: calc(100% - 1.125rem - 0.5rem);
-			font-size: 0.875rem;
-			color: #666;
-			line-height: 120%;
-			a {
-				color: var(--blue);
-				opacity: 0.8;
-			}
-		}
-	}
-}
-
-.borderButton {
-	border: var(--blue) solid 2px;
-	background-color: #fff;
-	height: 2.5rem;
-	padding: 0 2.5rem;
-	font-size: 1rem;
-	font-weight: 600;
-	color: var(--blue);
-	border-radius: 2px;
-
-	transition: 0.1s;
-	&:hover {
-		background-color: var(--blue);
-		color: #fff;
-	}
-}
 </style>
