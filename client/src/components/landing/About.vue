@@ -1,39 +1,22 @@
 <script>
 export default {
-  name: "About"
+  name: "About",
+  props: {
+    points: Array,
+  }
 }
 </script>
 
 <template>
   <div class="about">
     <div style="display: flex; flex-direction: row">
-      <p class="about__text">
-        <b>Уральский Университет - Уральский институт экономики, управления и права </b>
-        динамично развивающийся ВУЗ с бессрочной государственной лицензией и аккредитацией. За 33 года плодотворной работы мы накопили богатый опыт в образовательной сфере и выпустили более 13000 квалифицированных специалистов.
-      </p>
+      <slot></slot>
       <img src="@/assets/images/logo_institute.png" alt="Логотип" class="about__logo">
     </div>
     <div class="points">
       <div
         class="point"
-        v-for="point in [
-            {
-              number: 'от 30 000 ₽',
-              subtitle: 'за семестр обучения'
-            },
-            {
-              number: '33+',
-              subtitle: 'лет в сфере обучения'
-            },
-            {
-              number: '13 000+',
-              subtitle: 'студентов УрУ-УИЭУиП'
-            },
-            {
-              number: '39',
-              subtitle: 'программ обучения'
-            }
-        ]"
+        v-for="point in points"
       >
         <span class="point__number">{{ point.number }}</span>
         <span class="point__subtitle">{{ point.subtitle }}</span>
@@ -42,7 +25,7 @@ export default {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 
 .about {
   width: 100%;
