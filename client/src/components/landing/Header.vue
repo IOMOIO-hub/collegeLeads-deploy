@@ -1,18 +1,15 @@
 <script>
 export default {
   name: "Header",
-  emits: ['openModal']
+  emits: ['openModal'],
 }
 </script>
 
 <template>
   <header class="header">
     <div class="header__logo">
-      <img src="@/assets/logo.png" alt="Логотип" class="header__logo">
-      <div class="column">
-        <span class="title">Уральский колледж экономики и права</span>
-        <span class="subtitle">Автономная некоммерческая организация профессионального образования</span>
-      </div>
+      <img src="@/assets/images/logo.png" alt="Логотип" class="header__logo">
+      <slot></slot>
     </div>
 
     <button class="header__button" @click="$emit('openModal')">
@@ -21,7 +18,7 @@ export default {
   </header>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "@/assets/fonts/logoRegular.css";
 
 .header {
@@ -45,6 +42,10 @@ export default {
     .column {
       display: flex;
       flex-direction: column;
+
+      &.shorten {
+        display: none;
+      }
     }
 
     .title {
@@ -82,6 +83,18 @@ export default {
 @media screen and (max-width: 740px) {
   .header__button {
     display: none;
+  }
+}
+@media screen and (max-width: 540px) {
+  .header__button {
+    display: block;
+  }
+  .header__logo .column {
+    display: none;
+
+    &.shorten {
+      display: flex;
+    }
   }
 }
 

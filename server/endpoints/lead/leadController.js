@@ -1,4 +1,4 @@
-import {send} from "../../mailer.js";
+import { send } from "../../mailer.js";
 
 
 class leadController {

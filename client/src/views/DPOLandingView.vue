@@ -28,18 +28,18 @@ export default {
 <template>
   <Header @openModal="isModalOpen = true">
     <div class="column">
-      <span class="title">Уральский колледж экономики и права</span>
-      <span class="subtitle">Автономная некоммерческая организация профессионального образования</span>
+      <span class="title">Уральский Университет Управления и Права</span>
+      <span class="subtitle">Автономная некоммерческая организация дополнительного профессионального образования</span>
     </div>
     <div class="column shorten">
-      <span class="title">УКЭиП</span>
-      <span class="subtitle">АНО ПО</span>
+      <span class="title">УУУиП</span>
+      <span class="subtitle">АНО ДПО</span>
     </div>
   </Header>
 
   <Banner @openModal="isModalOpen = true">
-    <h1>Колледж</h1>
-    <p>Поступи в колледж <b>без ЕГЭ</b><br>Очно, заочно, дистанционно!</p>
+    <h1 style="font-size: 3rem">Переподготовка<br> и повышение квалификации</h1>
+    <p>Очно, заочно, дистанционно!</p>
   </Banner>
 
   <Features
@@ -57,7 +57,7 @@ export default {
         },
         {
           icon: 'file-certificate',
-          title: 'Диплом гос. образца',
+          title: 'удостоверение, диплом  с занесением в базу ФРДО',
           text: 'Государственная лицензия и аккредитация',
           link: '#docs'
         },
@@ -70,38 +70,81 @@ export default {
     ]"
   />
 
-  <Section title="Выбери свое направление" id="programs">
+  <Section title="Переподготовка или Повышение квалификации" id="programs">
+    <p>C указанием любой профессиональной дисциплины в соответствии с ФГОС для преподавателей ВПО, СПО, ДПО и общего развития</p>
     <ProgramGrid
       @click="isModalOpen = true"
       :programs="[
         {
-          title: 'Юриспруденция',
-          list: ['Общий', 'Правоохранительная деятельность', 'Судебное администрирование'],
-          subtitle: 'от 1 года 10 месяцев',
+          title: 'Информационные технологии в менеджменте (экономике, юриспруденции)',
+          list: ['Повышение квалификации'],
+          subtitle: 'от 32 часов',
           icon: 'graduation-cap'
         },
         {
-          title: 'Торговое дело',
-          list: ['Электронная коммерция'],
-          subtitle: 'от 1 года  10 месяцев',
+          title: 'Юриспруденция по профессиональной дисциплине',
+          list: ['Повышение квалификации'],
+          subtitle: 'от 32 часов',
           icon: 'graduation-cap'
         },
         {
-          title: 'Менеджмент',
-          list: ['Управление проектами', 'Управление персоналом', 'Финансовый менеджмент', 'Инновационный менеджмент', 'Психология управления', 'Информационные технологии в менеджменте'],
-          subtitle: 'от 3 лет',
+          title: 'Экономика по профессиональной дисциплине',
+          list: ['Переподготовка', 'Повышение квалификации'],
+          subtitle: 'от 32 часов',
           icon: 'graduation-cap'
         },
         {
-          title: 'Экономика',
-          list: ['Экономика и бухучет', 'Финансы и кредит', 'Банковское дело', 'Экономика малого бизнеса'],
-          subtitle: 'от 3 лет',
+          title: 'Менеджмент по профессиональной дисциплине',
+          list: ['Переподготовка', 'Повышение квалификации'],
+          subtitle: 'от 32 часов',
           icon: 'graduation-cap'
         },
         {
-          title: 'Повышение квалификации',
-          list: ['По запросу заказчика', 'По любым направлениям'],
+          title: 'Психология по профессиональной дисциплине',
+          list: ['Повышение квалификации'],
+          subtitle: 'от 32 часов',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Общеобразовательные дисциплины',
+          list: ['Повышение квалификации'],
           subtitle: 'от 16 до 256 часов',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Бережливое производство (управление)',
+          list: ['Переподготовка', 'Повышение квалификации'],
+          subtitle: 'от 144 до 1080 часов',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Финансовая грамотность',
+          list: ['Переподготовка', 'Повышение квалификации'],
+          subtitle: 'от 32 часов',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Менеджмент в образовании',
+          list: ['Переподготовка', 'Повышение квалификации'],
+          subtitle: 'от 32 часов',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Противодействие коррупции',
+          list: ['Повышение квалификации'],
+          subtitle: 'от 32 часов',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Противодействие терроризму и экстремизму',
+          list: ['Повышение квалификации'],
+          subtitle: 'от 16 до 256 часов',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Русский язык и культура речи',
+          list: ['Повышение квалификации'],
+          subtitle: 'от 72 до 256 часов',
           icon: 'graduation-cap'
         },
         {
@@ -111,8 +154,14 @@ export default {
           icon: 'graduation-cap'
         },
         {
+          title: 'Повышение квалификации',
+          list: ['По запросу заказчика', 'По любым направлениям', 'Индивидуальная траектория освоения'],
+          subtitle: 'от 16 часов ',
+          icon: 'graduation-cap'
+        },
+        {
           title: 'Популярные программы',
-          list: ['Ораторское мастерство', 'Лидерство', 'Командообразование', 'Игропрактики'],
+          list: ['Ораторское мастерство', 'Моббинг', 'Командообразование', 'Игропрактики', 'Деловые коммуникации'],
           subtitle: 'от 16 часов до 6 месяцев',
           icon: 'graduation-cap'
         },
@@ -124,14 +173,6 @@ export default {
         },
       ]"
     />
-  </Section>
-
-  <Section title="Непрерывная программа Колледж&nbsp;+&nbsp;ВУЗ" id="collegevuz">
-    <img
-      src="@/assets/images/CollegeVUZ.svg"
-      alt="Схема программы"
-      style="margin: 4rem 0; max-width: 100%"
-    >
   </Section>
 
   <Section title="Об институте">
@@ -159,35 +200,29 @@ export default {
         },
         {
           icon: 'graduation-cap',
-          title: 'Обучайся в УрУ-УИЭУиП',
-          text: 'Выбирай институт, колледж, повышение квалификации или переподготовку кадров! Приступайте к обучению и успехов!'
+          title: 'Обучайся в Уральском Университете Управления и Права',
+          text: 'Выбирай мастер-класс, повышение квалификации или переподготовку кадров! Приступайте к обучению и успехов!'
         },
     ]"
     />
   </Section>
 
-  <Section title="Лицензия и аккредитация" id="docs">
-    <p style="margin-top: 2rem">Посмотреть нашу бессрочную аккредитацию и лицензию Вы можете на сайте <a href="uralcollege.ru">uralcollege.ru</a></p>
+  <Section title="Лицензия" id="docs">
+    <p style="margin-top: 2rem">Посмотреть нашу бессрочную лицензию Вы можете на сайте <a href="уууэип.рф">уууэип.рф</a></p>
     <Cards
       :cards="[
           {
-            title: 'Свидетельство о гос. аккредитации',
-            subtitle: '№9682 от 02.06.2021',
-            image: 'certificate.png',
-            link: 'https://uralcollege.ru/uploadedFiles/files/Svidetelstvo_o_gos.akkreditatsii.pdf'
-          },
-          {
             title: 'Лицензия',
-            subtitle: '№20449 от 02.12.2020',
+            subtitle: '№19382 от 28.04.2017',
             image: 'license.png',
-            link: 'https://uralcollege.ru/uploadedFiles/files/litsenziya.PDF'
+            link: 'https://уууэип.рф/uploadedFiles/files/litsenziya_UUUEiP.jpg'
           },
       ]"
     />
   </Section>
 
   <div class="blackSection">
-    <Section title="Поступай в УрУ-УИЭиП - Институт, Колледж, ДПО. Идет набор!" class="blackSection__card">
+    <Section title="Поступай в Уральский Университет Управления и Права. Идет набор!" class="blackSection__card">
       <Form @openPolicy="isPolicyOpen = true" @submit="isNotificationOpen = true; isModalOpen = false"/>
     </Section>
   </div>

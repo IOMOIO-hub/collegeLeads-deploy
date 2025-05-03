@@ -30,4 +30,10 @@ export default {
   }
 }
 
+@media screen and (max-width: 540px) {
+  .section__title {
+    font-size: 2rem;
+  }
+}
+
 </style>

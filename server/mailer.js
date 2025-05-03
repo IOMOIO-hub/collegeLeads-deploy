@@ -11,16 +11,17 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-export const send = (name, tel) => {
+export const send = (name, telegram) => {
   const mailOptions = {
     from: FROM,
     to: TO,
-    subject: 'Новая заявка на uralcollege.ru',
+    subject: 'Новая заявка',
     text: '',
     html: `
        <h1>Новая заявка на uralcollege.ru</h1>
        <p>Имя: <b>${name}</b></p>
-       <p>Телефон: <b>${tel}</b></p>`
+       <p>Телеграм: <b>${telegram}</b></p>
+    `
   }
 
   transporter.sendMail(mailOptions, (error, info) => {

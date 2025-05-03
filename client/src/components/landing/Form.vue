@@ -9,9 +9,10 @@ export default {
       telegram: '',
     }
   },
-  emits: ['openPolicy'],
+  emits: ['openPolicy', 'submit'],
   methods: {
     async lead() {
+      this.$emit('submit')
       await request('lead/new', {name: this.name, telegram: this.telegram})
     }
   }
@@ -23,14 +24,14 @@ export default {
     <p>Ваше имя</p>
     <input type="text" v-model="name" placeholder="Имя" class="form__input">
     <p>Телеграм</p>
-    <input type="tel" v-model="telegram" placeholder="@username" class="form__input">
+    <input type="text" v-model="telegram" placeholder="@username" class="form__input">
     <span>Если вас нет в телеграм, оставьте номер телефона</span>
     <div class="form__agreement">
       <input type="checkbox" checked @click.prevent>
       <p>Отправляя заявку, вы соглашаетесь с <a @click="$emit('openPolicy')" style="cursor: pointer">политикой конфиденциальности</a> и условиями обработки персональных
         данных, а также даёте согласие на получение информационных рассылок</p>
     </div>
-    <button @click="lead" class="borderButton">Получить</button>
+    <button @click="lead" class="borderButton">Отправить</button>
   </div>
 </template>
 

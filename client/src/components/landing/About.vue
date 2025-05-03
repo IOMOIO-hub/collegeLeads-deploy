@@ -95,6 +95,17 @@ export default {
 @media screen and (max-width: 740px) {
   .about {
     padding: 3rem 2rem;
+
+    &__text {
+      font-size: 1.125rem;
+    }
+
+    &__logo {
+      width: 10rem;
+      height: 10rem;
+      right: -3rem;
+      top: -3rem;
+    }
   }
 }
 

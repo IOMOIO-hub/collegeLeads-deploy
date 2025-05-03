@@ -47,6 +47,7 @@ export default {
     font-size: 0.875rem;
     color: var(--blue);
     margin-top: auto;
+    padding-top: 0.25rem;
   }
   cursor: pointer;
   &:hover &__hint {
@@ -71,13 +72,13 @@ export default {
     div {
       white-space: nowrap;
       line-height: 1.5rem;
-      background-color: #004e8a44;
+      background-color: #ffffff;
       border-radius: 4px;
       padding: 0 0.25rem;
 
       font-size: 0.875rem;
       font-weight: 500;
-      color: var(--blue);
+      color: #000;
     }
   }
 }

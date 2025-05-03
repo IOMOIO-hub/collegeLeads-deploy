@@ -28,18 +28,18 @@ export default {
 <template>
   <Header @openModal="isModalOpen = true">
     <div class="column">
-      <span class="title">Уральский колледж экономики и права</span>
-      <span class="subtitle">Автономная некоммерческая организация профессионального образования</span>
+      <span class="title">Уральский Университет - Уральский Институт Экономики, Управления и Права</span>
+      <span class="subtitle">Автономная некоммерческая организация высшего образования</span>
     </div>
     <div class="column shorten">
-      <span class="title">УКЭиП</span>
-      <span class="subtitle">АНО ПО</span>
+      <span class="title">УрУ-УИЭУиП</span>
+      <span class="subtitle">АНО ВО</span>
     </div>
   </Header>
 
   <Banner @openModal="isModalOpen = true">
-    <h1>Колледж</h1>
-    <p>Поступи в колледж <b>без ЕГЭ</b><br>Очно, заочно, дистанционно!</p>
+    <h1>УрУ-УИЭУиП</h1>
+    <p>Поступи в институт <b>без ЕГЭ</b><br>Очно, заочно, дистанционно!</p>
   </Banner>
 
   <Features
@@ -75,26 +75,80 @@ export default {
       @click="isModalOpen = true"
       :programs="[
         {
-          title: 'Юриспруденция',
-          list: ['Общий', 'Правоохранительная деятельность', 'Судебное администрирование'],
-          subtitle: 'от 1 года 10 месяцев',
-          icon: 'graduation-cap'
-        },
-        {
-          title: 'Торговое дело',
-          list: ['Электронная коммерция'],
-          subtitle: 'от 1 года  10 месяцев',
-          icon: 'graduation-cap'
-        },
-        {
-          title: 'Менеджмент',
-          list: ['Управление проектами', 'Управление персоналом', 'Финансовый менеджмент', 'Инновационный менеджмент', 'Психология управления', 'Информационные технологии в менеджменте'],
+          title:'Управление проектами',
+          list: ['бакалавр направления Менеджмент'],
           subtitle: 'от 3 лет',
           icon: 'graduation-cap'
         },
         {
-          title: 'Экономика',
-          list: ['Экономика и бухучет', 'Финансы и кредит', 'Банковское дело', 'Экономика малого бизнеса'],
+          title: 'Информационные технологии в менеджменте',
+          list: ['бакалавр направления Менеджмент'],
+          subtitle: 'от 3 лет',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Финансовый менеджмент',
+          list: ['бакалавр направления Менеджмент'],
+          subtitle: 'от 3 лет',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Корпоративное управление',
+          list: ['бакалавр направления Менеджмент'],
+          subtitle: 'от 3 лет',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Финансовое право',
+          list: ['бакалавр направления Менеджмент'],
+          subtitle: 'от 3 лет',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Психология управления',
+          list: ['бакалавр направления Менеджмент'],
+          subtitle: 'от 3 лет',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Инновационный менеджмент',
+          list: ['бакалавр направления Менеджмент'],
+          subtitle: 'от 3 лет',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Экономика и бухучет',
+          list: ['бакалавр направления Экономика'],
+          subtitle: 'от 3 лет',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Финансы и кредит',
+          list: ['бакалавр направления Экономика'],
+          subtitle: 'от 3 лет',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Банковское дело',
+          list: ['бакалавр направления Экономика'],
+          subtitle: 'от 3 лет',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Экономика малого бизнеса',
+          list: ['бакалавр направления Экономика'],
+          subtitle: 'от 3 лет',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Цифровая экономика',
+          list: ['бакалавр направления Экономика'],
+          subtitle: 'от 3 лет',
+          icon: 'graduation-cap'
+        },
+        {
+          title: 'Информационные технологии в экономике',
+          list: ['бакалавр направления Экономика'],
           subtitle: 'от 3 лет',
           icon: 'graduation-cap'
         },
@@ -112,14 +166,8 @@ export default {
         },
         {
           title: 'Популярные программы',
-          list: ['Ораторское мастерство', 'Лидерство', 'Командообразование', 'Игропрактики'],
+          list: ['Бережливое управление', 'Финансовая грамотность', 'Командообразование', 'Игропрактики', 'Конфликтология'],
           subtitle: 'от 16 часов до 6 месяцев',
-          icon: 'graduation-cap'
-        },
-        {
-          title: 'Иностранные языки',
-          list: ['Английский', 'Немецкий', 'Итальянский', 'Китайский'],
-          subtitle: 'от 3 месяцев',
           icon: 'graduation-cap'
         },
       ]"
@@ -167,20 +215,20 @@ export default {
   </Section>
 
   <Section title="Лицензия и аккредитация" id="docs">
-    <p style="margin-top: 2rem">Посмотреть нашу бессрочную аккредитацию и лицензию Вы можете на сайте <a href="uralcollege.ru">uralcollege.ru</a></p>
+    <p style="margin-top: 2rem">Посмотреть нашу бессрочную аккредитацию и лицензию Вы можете на сайте <a href="urauver.ru">urauver.ru</a></p>
     <Cards
       :cards="[
           {
             title: 'Свидетельство о гос. аккредитации',
-            subtitle: '№9682 от 02.06.2021',
+            subtitle: '№3594 от 11.06.2021',
             image: 'certificate.png',
-            link: 'https://uralcollege.ru/uploadedFiles/files/Svidetelstvo_o_gos.akkreditatsii.pdf'
+            link: 'https://urauver.ru/uploadedFiles/files/documenti/akkreditaciya-2021-_split_1.pdf'
           },
           {
             title: 'Лицензия',
-            subtitle: '№20449 от 02.12.2020',
+            subtitle: '№ Л035-00115-66/00096722 от 25.01.2021',
             image: 'license.png',
-            link: 'https://uralcollege.ru/uploadedFiles/files/litsenziya.PDF'
+            link: 'https://urauver.ru/uploadedFiles/files/obrazovanie/reestrovaya-vypiska.pdf'
           },
       ]"
     />

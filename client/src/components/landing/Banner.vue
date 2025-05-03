@@ -1,16 +1,16 @@
 <script>
 export default {
   name: "Banner",
-  emits: ['openModal']
+  emits: ['openModal'],
 }
 </script>
 
 <template>
   <div class="banner">
     <div class="banner__back"></div>
-    <img src="@/assets/banner.png" alt="Студент на пуфе" class="banner__image">
-    <h1>Колледж</h1>
-    <p>Поступи в колледж <b>без ЕГЭ</b><br>Очно, заочно, дистанционно!</p>
+    <img src="@/assets/images/banner.png" alt="Студент на пуфе" class="banner__image">
+    <img src="@/assets/images/sticker.webp" alt="Идет набор" class="banner__sticker">
+    <slot></slot>
     <div class="banner__buttons">
       <a @click="$emit('openModal')">Подать заявку</a>
       <a href="#programs">Выбрать направление</a>
@@ -18,7 +18,7 @@ export default {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 
 .banner {
   width: calc(100% - 1rem);
@@ -27,6 +27,9 @@ export default {
   padding: 3rem 4rem;
   border: #121212 solid 1px;
   background-color: #f2f2f2;
+
+  display: flex;
+  flex-direction: column;
 
   h1 {
     font-size: 4rem;
@@ -41,20 +44,25 @@ export default {
   }
 
   position: relative;
-
   &__image {
     position: absolute;
     right: -5%;
     top: -20%;
     height: 150%;
   }
+  &__sticker {
+    position: absolute;
+    right: 17%;
+    top: 12%;
+    height: 3rem;
+    transform: rotate(-10deg);
+  }
 
   &__buttons {
-    height: 3rem;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    margin-top: 2rem;
+    margin-top: auto;
 
     a {
       line-height: 3rem;
@@ -85,6 +93,12 @@ export default {
     right: -1rem;
     bottom: -1rem;
     z-index: -1;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .banner__sticker {
+    display: none;
   }
 }
 

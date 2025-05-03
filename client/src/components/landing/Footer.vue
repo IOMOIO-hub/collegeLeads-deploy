@@ -27,6 +27,7 @@ export default {
   a, p {
     font-size: 1rem;
     color: #000;
+    line-height: 120%;
   }
   &__address {
     font-weight: 600;
