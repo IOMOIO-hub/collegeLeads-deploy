@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer"
-import { FROM, TO, PASS } from "./secret"
+import { FROM, TO, PASS } from "./secret.js"
 
 const transporter = nodemailer.createTransport({
   host: "smtp.yandex.ru",
@@ -11,14 +11,14 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-export const send = (name, telegram) => {
+export const send = (name, telegram, origin) => {
   const mailOptions = {
     from: FROM,
     to: TO,
     subject: 'Новая заявка',
     text: '',
     html: `
-       <h1>Новая заявка на uralcollege.ru</h1>
+       <h1>Новая заявка (${origin})</h1>
        <p>Имя: <b>${name}</b></p>
        <p>Телеграм: <b>${telegram}</b></p>
     `

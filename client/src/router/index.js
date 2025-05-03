@@ -13,17 +13,17 @@ const routes = [
   },
   {
     path: '/college',
-    name: 'college_landing',
+    name: 'Колледж',
     component: CollegeLandingView,
   },
   {
     path: '/DPO',
-    name: 'DPO_landing',
+    name: 'ДПО',
     component: DPOLandingView,
   },
   {
     path: '/institute',
-    name: 'institute_landing',
+    name: 'Институт',
     component: InstituteLandingView,
   }
 ]

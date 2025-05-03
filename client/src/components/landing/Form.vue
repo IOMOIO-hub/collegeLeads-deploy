@@ -13,7 +13,7 @@ export default {
   methods: {
     async lead() {
       this.$emit('submit')
-      await request('lead/new', {name: this.name, telegram: this.telegram})
+      await request('lead/new', {name: this.name, telegram: this.telegram, origin: this.$route.name})
     }
   }
 }
