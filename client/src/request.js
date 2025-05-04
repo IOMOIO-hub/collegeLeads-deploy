@@ -11,10 +11,7 @@ export default async function request(url, data = null, method = 'GET') {
       method = 'POST'
     }
 
-    // const response = await fetch('https://tg-forms.ru/api/' + url, {
-    //   method, headers, body
-    // })
-    const response = await fetch('http://89.169.164.74/api/' + url, {
+    const response = await fetch('https://ural-university.ru/api/' + url, {
       method, headers, body
     })
 
