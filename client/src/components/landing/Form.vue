@@ -23,12 +23,12 @@ export default {
   <div class="form">
     <p>Ваше имя</p>
     <input type="text" v-model="name" placeholder="Имя" class="form__input">
-    <p>Телефон / Телеграм</p>
-    <input type="text" v-model="telegram" placeholder="+7 900 000 00 00 / @username" class="form__input">
+    <p>Телефон или Телеграм</p>
+    <input type="text" v-model="telegram" placeholder="+7 900 000 00 00 или @username" class="form__input">
     <div class="form__agreement">
       <input type="checkbox" checked @click.prevent>
-      <p>Отправляя заявку, вы соглашаетесь с <a @click="$emit('openPolicy')" style="cursor: pointer">политикой конфиденциальности</a> и условиями обработки персональных
-        данных, а также даёте согласие на получение информационных рассылок</p>
+      <p>Отправляя заявку, вы соглашаетесь с <a @click="$emit('openPolicy')" style="cursor: pointer">политикой конфиденциальности</a> и условиями обработки персональных данных</p>
+      <!-- , а также даёте согласие на получение информационных рассылок-->
     </div>
     <button @click="lead" class="borderButton">Отправить</button>
   </div>

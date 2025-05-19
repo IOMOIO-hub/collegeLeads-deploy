@@ -12,7 +12,7 @@ export default {
     <img src="@/assets/images/sticker.webp" alt="Идет набор" class="banner__sticker">
     <slot></slot>
     <div class="banner__buttons">
-      <a @click="$emit('openModal')">Получить консультацию</a>
+      <a @click="$emit('openModal')">Узнать подробнее</a>
       <a href="#programs">Выбрать направление</a>
     </div>
   </div>
