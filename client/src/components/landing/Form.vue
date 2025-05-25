@@ -21,10 +21,10 @@ export default {
 
 <template>
   <div class="form">
-    <p>Ваше имя</p>
-    <input type="text" v-model="name" placeholder="Имя" class="form__input">
-    <p>Телефон или Телеграм</p>
-    <input type="text" v-model="telegram" placeholder="+7 900 000 00 00 или @username" class="form__input">
+    <p>Как вас зовут?</p>
+    <input type="text" v-model="name" placeholder="ФИО" class="form__input">
+    <p>Телефон</p>
+    <input type="text" v-model="telegram" placeholder="+7 900 000 00 00" class="form__input">
     <div class="form__agreement">
       <input type="checkbox" checked @click.prevent>
       <p>Отправляя заявку, вы соглашаетесь с <a @click="$emit('openPolicy')" style="cursor: pointer">политикой конфиденциальности</a> и условиями обработки персональных данных</p>
@@ -38,6 +38,7 @@ export default {
 
 .form {
   width: 100%;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
